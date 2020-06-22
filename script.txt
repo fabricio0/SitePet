@@ -1,0 +1,26 @@
+Estou usando a IDE Eclipse e banco postgres
+
+No postgres 
+- criar um banco com o nome de SitePet
+
+Na Ide
+- colocar o projeto na ide preferida
+
+-Fazer a navegaaçãoa seguir:
+- ir no Pacote JavaResources
+	-br.com.projetoPet.bean
+		Descomentar a classe teste e executar com javaApplication
+No passo acima as tabelas do banco sera criada
+-br.com.projetoPet.bean
+-selecionar tudo e comentar de novo a classe
+
+
+	
+No postgres, navegar ate a tabela Usuario e fazer um insert
+INSERT INTO public.usuario(
+            id, email, nome, senha, categoria)
+    VALUES (1000, 'a', 'admin', 'admin', 'administrador');
+
+
+Só rodar e fazer os testes e contribuir !! 
+Fim. 

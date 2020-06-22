@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd" >
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head id="j_idt410">
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PET São Carlos - SP</title>
+</h:head>
+
+<h:body>
+	<div class="container">
+		<section class="logo home">
+		<div class="navLayout">
+			<p:link outcome="../index.xhtml"><img src="../img/logoPET.png" alt="Logo do PET ADS IFSP São Carlos" /></p:link>
+			<div data-menu="data-menu">
+				<nav>
+				<ul>
+					<li data-href="#Sobre">Sobre</li>
+					<li data-href="#Noticia">Noticias</li>
+					<li data-href="#Numeros">Pet em números</li>
+					<li>Contato</li>
+
+				</ul>
+				</nav>
+			</div>
+		</div>
+		</section>
+		<div>
+
+
+			<section class="accordionHome">
+			<div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Inserir</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li><p:link outcome="mainUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="mainUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="mainUser" value="Atividades"></p:link></li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Deletar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li>Nóticia</li>
+						<li>Usuário</li>
+						<li>Atividades</li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Editar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li><p:link outcome="updateUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="updateUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="updateUser" value="Atividades"></p:link></li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion" class="ativo">
+						<h1>Visualizar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion" class="ativo">
+						<li data-accordionInsert="data-accordionInsert">Nóticia</li>
+						<li data-accordionInsert="data-accordionInsert">Usuário</li>
+						<li data-accordionInsert="data-accordionInsert">Atividades</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="formContent">
+				<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
+				
+				 <h1>Notícias</h1>
+					<p:dataTable var="noticia" value="#{beanView.noticias}" rows="5"
+                 			paginator="true"
+               				  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+               				  rowsPerPageTemplate="5,10,15" styleClass="data-scroll" lazy="true" paginatorPosition="bottom">
+						<p:column headerText="Título">
+          					  <h:outputText value="#{noticia.titulo}" />
+       					 </p:column>
+
+						<p:column>
+							<h:outputText value="#{noticia.data}" />
+						</p:column>
+						
+						<p:column>
+						
+							<h:outputText value="#{noticia.conteudo}" />
+						</p:column>
+						
+					</p:dataTable>
+					
+				</div>
+				<div class="divId tabela" data-contentLeft="data-contentLeft">
+					 <h1>Alunos</h1>
+					<h:dataTable value="#{beanView.usuarios}" var="user" class="data-scroll">
+
+						<h:column>
+							<f:facet name = "header">Nome</f:facet>    	
+							<h:outputText value="#{user.nome}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name = "header">Email</f:facet>    	
+							<h:outputText value="#{user.email}" />
+						</h:column>
+						
+					</h:dataTable>
+				</div>
+				<div class="divId tabela" data-contentLeft="data-contentLeft">
+					 <h1>Atividades</h1>
+					<h:dataTable value="#{beanView.atividades}" var="atividade" class="data-scroll">
+
+						<h:column>
+							<f:facet name = "header">Nome</f:facet>    	
+							<h:outputText value="#{atividade.titulo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name = "header">Email</f:facet>    	
+							<h:outputText value="#{atividade.data}" />
+						</h:column>
+						<h:column>
+							<f:facet name = "header">Conteúdo</f:facet>    	
+							<h:outputText value="#{atividade.conteudo}" />
+						</h:column>
+						
+					</h:dataTable>
+				</div>
+			</div>
+			</section>
+
+		</div>
+
+
+	</div>
+
+	<script src="../js/scriptUser.js"></script>
+</h:body>
+</h:html>

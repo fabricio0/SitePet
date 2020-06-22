@@ -1,0 +1,216 @@
+<?xml version="1.0"  ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd" >
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PET São Carlos - SP</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</h:head>
+<h:body>
+<div class="container">
+		<section class="logo home">
+		<div class="navLayout">
+			<p:link outcome="../index.xhtml"><img src="../img/logoPET.png" alt="Logo do PET ADS IFSP São Carlos" /></p:link>
+			<div data-menu="data-menu">
+				<nav>
+				<ul>
+					<li data-href="#Sobre">Sobre</li>
+					<li data-href="#Noticia">Noticias</li>
+					<li data-href="#Numeros">Pet em números</li>
+					<li>Contato</li>
+
+				</ul>
+				</nav>
+			</div>
+		</div>
+		</section>
+		<div>
+
+
+			<section class="accordionHome">
+			<div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Inserir</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li><p:link outcome="mainUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="mainUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="mainUser" value="Atividades"></p:link></li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Deletar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li>Nóticia</li>
+						<li>Usuário</li>
+						<li>Atividades</li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion" class="ativo">
+						<h1>Editar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion" class="ativo">
+						<li data-accordionInsert="data-accordionInsert">Nóticia</li>
+						<li data-accordionInsert="data-accordionInsert">Usuário</li>
+						<li data-accordionInsert="data-accordionInsert">Atividades</li>
+					</ul>
+				</div>
+				<div class="divFlex">
+					<div data-accordion="data-accordion">
+						<h1>Visualizar</h1>
+						<span class="spanId"></span>
+					</div>
+					<ul data-listaAccordion="data-listaAccordion">
+						<li><p:link outcome="viewUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="viewUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="viewUser" value="Atividades"></p:link></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="formContent">
+				<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
+				<h1>Editar Noticia</h1>
+        <h:form enctype="multipart/form-data"> 
+   			 <p:growl id="growl" life="2000" />
+	          <h:outputLabel for="titulo" value="Título" styleClass="labelId" />
+	          <p:inputText id="titulo" value="#{beanHomeUser.noticia.titulo}" />
+	           <h:outputLabel for="data" value="Data" styleClass="labelId" />
+	          <p:datePicker id="data" value="#{beanHomeUser.noticia.data}" />
+	           <h:outputLabel for="conteudo" value="Conteúdo" styleClass="labelId" />
+     		  <p:inputTextarea id="conteudo" rows="5" cols="50" value="#{beanHomeUser.noticia.conteudo}" />
+    		  <p:commandButton ajax="false" value="Editar" update="growl frmNoticio" action="#{beanHomeUser.editarNoticia}" />
+			</h:form>
+			<h:form id="frmNoticio">
+					<p:dataTable var="noticia" value="#{beanView.noticias}" rows="5"
+                 			paginator="true"
+               				  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+               				  rowsPerPageTemplate="5,10,15" styleClass="data-scroll" lazy="true" paginatorPosition="bottom">
+						<p:column headerText="Título">
+          					  <h:outputText value="#{noticia.titulo}" />
+       					 </p:column>
+
+						<p:column>
+							<h:outputText value="#{noticia.data}" />
+						</p:column>
+						
+						<p:column>
+						
+							<h:outputText value="#{noticia.conteudo}" />
+						</p:column>
+						<p:column> 	
+							<h:commandLink>
+							<h:graphicImage library="img" name="logoEdit.png" style="width:30px;height:30px" />
+							<f:setPropertyActionListener value="#{noticia}" target="#{beanHomeUser.noticia}" />
+							</h:commandLink>
+						</p:column>
+						
+					</p:dataTable>
+					</h:form>
+					
+				</div>
+				<div class="divId tabela" data-contentLeft="data-contentLeft">
+				<h1>Editar Usuário</h1>
+          <h:form enctype="multipart/form-data">
+   			 	<p:growl id="growl" life="2000" />
+           		<h:outputLabel for="nome" value="Nome" styleClass="labelId" />
+	          	<p:inputText id="nome" value="#{beanHomeUser.usuario2.nome}" />
+	          	<h:outputLabel for="email" value="Email" styleClass="labelId" />
+	          	<p:inputText id="email" value="#{beanHomeUser.usuario2.email}" />
+	          	<h:outputLabel for="senha" value="Senha" styleClass="labelId" />
+	          	<p:password id="senha" value="#{beanHomeUser.usuario2.senha}" />
+     		   <p:outputLabel styleClass="labelId" for="console" value="Console:" />
+    		    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+   			     <p:outputLabel for="@next" value="Categoria: " />
+     		   <p:selectOneMenu id="console" value="#{beanHomeUser.usuario2.categoria}" style="width:125px">
+            <f:selectItem itemLabel="Administrador" itemValue="administrador" />
+            <f:selectItem itemLabel="Aluno" itemValue="aluno" />
+      		  </p:selectOneMenu>
+      		  </h:panelGrid>
+    		<p:fileUpload fileUploadListener="#{beanHomeUser.upload}" value="#{beanHomeUser.file}" mode="simple" auto="true" />
+			<p:commandButton ajax="false" value="Editar" update="growl" actionListener="#{beanHomeUser.editarUsuario}" />
+			</h:form>
+					 <h:form>
+					<h:dataTable value="#{beanView.usuarios}" var="user" class="data-scroll">
+
+						<h:column>
+							<f:facet name = "header">Nome</f:facet>    	
+							<h:outputText value="#{user.nome}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name = "header">Email</f:facet>    	
+							<h:outputText value="#{user.email}" />
+						</h:column>
+						<h:column> 	
+							<h:commandLink immediate="true">
+							<h:graphicImage library="img" name="logoEdit.png" style="width:30px;height:30px" />
+							<f:setPropertyActionListener value="#{user}" target="#{beanHomeUser.usuario2}" />
+							</h:commandLink>
+						</h:column>
+						
+					</h:dataTable>
+					 </h:form>
+				</div>
+				<div class="divId tabela" data-contentLeft="data-contentLeft">
+				 <h1>Editar Atividade</h1>
+          
+          <h:form id="formAtt"> 
+   			 <p:growl id="growl" life="2000" />
+	          <h:outputLabel for="titulo" value="Título" styleClass="labelId" />
+	          <p:inputText id="titulo" value="#{beanHomeUser.atividade.titulo}" />
+	          <h:outputLabel for="data" value="Data" styleClass="labelId" />
+	          <p:datePicker id="data" value="#{beanHomeUser.atividade.data}" />
+	          <h:outputLabel for="conteudo" value="Conteúdo" styleClass="labelId" />
+     		  <p:inputTextarea id="conteudo" rows="5" cols="50" value="#{beanHomeUser.atividade.conteudo}" />
+    		  <p:commandButton ajax="false" value="Editar" update="growl" action="#{beanHomeUser.editarAtividade}" />
+			</h:form>
+			<h:form>
+					<h:dataTable value="#{beanView.atividades}" var="atividade" class="data-scroll">
+
+						<h:column>
+							<f:facet name = "header">Nome</f:facet>    	
+							<h:outputText value="#{atividade.titulo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name = "header">Email</f:facet>    	
+							<h:outputText value="#{atividade.data}" />
+						</h:column>
+						<h:column>
+							<f:facet name = "header">Conteúdo</f:facet>    	
+							<h:outputText value="#{atividade.conteudo}" />
+						</h:column>
+						<h:column> 	
+							<h:commandLink immediate="true">
+							<h:graphicImage library="img" name="logoEdit.png" style="width:30px;height:30px" />
+							<f:setPropertyActionListener value="#{atividade}" target="#{beanHomeUser.atividade}" />
+							</h:commandLink>
+						</h:column>
+						
+					</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+			</section>
+
+		</div>
+
+
+	</div>
+
+	<script src="../js/scriptUser.js"></script>
+</h:body>
+</h:html>
