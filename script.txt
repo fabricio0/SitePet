@@ -1,4 +1,4 @@
-Estou usando a IDE Eclipse e banco postgres
+Estou usando a IDE Eclipse e banco postgresql
 
 No postgres 
 - criar um banco com o nome de SitePet
