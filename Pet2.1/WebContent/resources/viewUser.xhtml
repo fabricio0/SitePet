@@ -10,16 +10,20 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>PET São Carlos - SP</title>
+	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/style.css"  />
 </h:head>
 
 <h:body>
 	<div class="container">
 		<section class="logo home">
 		<div class="navLayout">
-			<p:link outcome="../index.xhtml"><img src="../img/logoPET.png" alt="Logo do PET ADS IFSP São Carlos" /></p:link>
+			<p:link outcome="index.xhtml"><img src="img/logoPET.png" alt="Logo do PET ADS IFSP São Carlos" /></p:link>
 			<div data-menu="data-menu">
 				<nav>
-				<ul>
+				 <ul style="align-items: center;">
+          		   <li>
+          		    <h:graphicImage value="#{benLogin.usuario.imagem}" rendered="#{benLogin.autoriza('USUARIOLOGADO')}" alt="imagemsft" style="border-radius:50%; height:60px; width:60px;"/>
+           		   </li>
 					<li data-href="#Sobre">Sobre</li>
 					<li data-href="#Noticia">Noticias</li>
 					<li data-href="#Numeros">Pet em números</li>
@@ -32,18 +36,19 @@
 		</section>
 		<div>
 
-
+			
 			<section class="accordionHome">
 			<div>
+			<h:form rendered="false">
 				<div class="divFlex">
 					<div data-accordion="data-accordion">
 						<h1>Inserir</h1>
 						<span class="spanId"></span>
 					</div>
 					<ul data-listaAccordion="data-listaAccordion">
-						<li><p:link outcome="mainUser" value="Nóticia"></p:link></li>
-       				    <li><p:link outcome="mainUser" value="Usuário"></p:link></li>
-            			<li><p:link outcome="mainUser" value="Atividades"></p:link></li>
+						<li><p:link outcome="html/mainUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="html/mainUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="html/mainUser" value="Atividades"></p:link></li>
 					</ul>
 				</div>
 				<div class="divFlex">
@@ -63,11 +68,12 @@
 						<span class="spanId"></span>
 					</div>
 					<ul data-listaAccordion="data-listaAccordion">
-						<li><p:link outcome="updateUser" value="Nóticia"></p:link></li>
-       				    <li><p:link outcome="updateUser" value="Usuário"></p:link></li>
-            			<li><p:link outcome="updateUser" value="Atividades"></p:link></li>
+						<li><p:link outcome="html/updateUser" value="Nóticia"></p:link></li>
+       				    <li><p:link outcome="html/updateUser" value="Usuário"></p:link></li>
+            			<li><p:link outcome="html/updateUser" value="Atividades" ></p:link></li>
 					</ul>
 				</div>
+				</h:form>
 				<div class="divFlex">
 					<div data-accordion="data-accordion" class="ativo">
 						<h1>Visualizar</h1>
@@ -76,7 +82,9 @@
 					<ul data-listaAccordion="data-listaAccordion" class="ativo">
 						<li data-accordionInsert="data-accordionInsert">Nóticia</li>
 						<li data-accordionInsert="data-accordionInsert">Usuário</li>
+						<h:form rendered="#{benLogin.autoriza('USUARIOLOGADO')}">
 						<li data-accordionInsert="data-accordionInsert">Atividades</li>
+						</h:form>
 					</ul>
 				</div>
 			</div>
@@ -149,6 +157,6 @@
 
 	</div>
 
-	<script src="../js/scriptUser.js"></script>
+	<script src="js/scriptUser.js"></script>
 </h:body>
 </h:html>

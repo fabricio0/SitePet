@@ -19,7 +19,10 @@
         <h:graphicImage name="logoPET.png" library="img" />
         <div data-menu="data-menu">
          <nav>
-            <ul>
+            <ul style="align-items: center;">
+             <li>
+              <h:graphicImage value="#{benLogin.usuario.imagem}" alt="imagemsft" style="border-radius:50%; height:60px; width:60px;"/>
+              </li>
               <li data-href="#Sobre">Sobre</li>
               <li data-href="#Noticia">Noticias</li>
               <li data-href="#Numeros">Pet em números</li>
@@ -81,9 +84,9 @@
             <span class="spanId"></span>
           </div>
           <ul data-listaAccordion="data-listaAccordion">
-            <li><p:link outcome="viewUser.xhtml" value="Nóticia"></p:link></li>
-            <li><p:link outcome="viewUser.xhtml" value="Usuário"></p:link></li>
-            <li><p:link outcome="viewUser.xhtml" value="Atividades"></p:link></li>
+            <li><p:link outcome="../viewUser.xhtml" value="Nóticia"></p:link></li>
+            <li><p:link outcome="../viewUser.xhtml" value="Usuário"></p:link></li>
+            <li><p:link outcome="../viewUser.xhtml" value="Atividades"></p:link></li>
           </ul>
         </div>
       </div>
@@ -120,8 +123,8 @@
             <f:selectItem itemLabel="Aluno" itemValue="aluno" />
       		  </p:selectOneMenu>
       		  </h:panelGrid>
-    		<p:fileUpload fileUploadListener="#{beanHomeUser.upload}" value="#{beanHomeUser.file}" mode="simple" auto="true" />
-			<p:commandButton ajax="false" value="Salvar" update="growl" actionListener="#{beanHomeUser.salvarUsuario}" />
+    		<p:fileUpload fileUploadListener="#{beanHomeUser.uploadImg}" auto="true" mode="advanced" />
+			<p:commandButton value="Salvar" update="growl" actionListener="#{beanHomeUser.salvarUsuario}" />
 			</h:form>
         </div>
         <div class="divId" data-contentLeft="data-contentLeft">

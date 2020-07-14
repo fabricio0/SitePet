@@ -38,15 +38,13 @@ public class BeanLogin {
 
 	// Funcao para login e inicio da sessão
 	public String logar() {
-		Usuario usuarioAutenticacao = null;
 		DaoGenerico<Usuario> daoGenerico = new DaoGenerico<Usuario>();
-		usuarioAutenticacao = (Usuario) daoGenerico.buscarUsuario(usuario);
-		if (usuarioAutenticacao != null) {
+		usuario = (Usuario) daoGenerico.buscarUsuario(usuario);
+		if (usuario != null) {
 			addMessage("Entrou com sucesso !");
-			usuarioAutenticacao.setStatus("USUARIOLOGADO");
 			usuario.setStatus("USUARIOLOGADO");
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado",
-					usuarioAutenticacao);
+					usuario);
 			return "/resources/html/mainUser.xhtml";
 		} else
 			addMessage("Email ou senha incorretos !");

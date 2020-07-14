@@ -37,6 +37,7 @@ public class FilterApp implements Filter {
 		HttpSession session = req.getSession();
 		String url = req.getServletPath();
 		request.getParameter("usuario");
+		System.out.println(request.getParameter("usuario"));
 		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 //		System.out.println("url da requisição");
 //		System.out.println(url);

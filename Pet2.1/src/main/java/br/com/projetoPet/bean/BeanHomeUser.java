@@ -13,6 +13,8 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import br.com.projetoPet.daoGeneric.DaoGenerico;
+import br.com.projetoPet.factory.InstanceImg;
+import br.com.projetoPet.templateImg.TemplateImg;
 import br.com.projetoPet.util.Atividade;
 import br.com.projetoPet.util.Noticia;
 import br.com.projetoPet.util.Usuario;
@@ -21,14 +23,16 @@ import br.com.projetoPet.util.Usuario;
 @ManagedBean(name = "beanHomeUser")
 public class BeanHomeUser {
 
-	// homeUser
 
 	private UploadedFile file;
 	Usuario usuario = new Usuario();
 	Usuario usuario2 = new Usuario();
 	Noticia noticia = new Noticia();
 	Atividade atividade = new Atividade();
-
+	
+	public void uploadImg(FileUploadEvent event) {
+		file = event.getFile();
+	}
 	public String salvarNoticia() {
 		try {
 			DaoGenerico<Noticia> daoGenerico = new DaoGenerico<Noticia>();
@@ -90,6 +94,12 @@ public class BeanHomeUser {
 	public String editarUsuario() {
 		try {
 			DaoGenerico<Usuario> daoGenerico = new DaoGenerico<Usuario>();
+//			String img = "data:image/jpg;base64," + DatatypeConverter.printBase64Binary(this.getFile().getContents());
+			System.out.println(this.getFile().getContentType());
+			System.out.println(this.getFile().getSize());
+			InstanceImg instanceImg = new InstanceImg();
+			TemplateImg templateImg = instanceImg.buscarInstance(this.getFile().getContentType());
+			usuario2.setImagem(templateImg.upload(DatatypeConverter.printBase64Binary(this.getFile().getContents()), this.getFile().getContentType()));
 //				System.out.println(noticiasAtt.getTitulo());
 			daoGenerico.mergeAtts(usuario2);
 			addMessage("Sucesso ao editar Usuário");
@@ -102,11 +112,11 @@ public class BeanHomeUser {
 	}
 
 	public String salvarUsuario() {
-
-		String img = "data:image/jpg;base64," + DatatypeConverter.printBase64Binary(this.getFile().getContents());
 		try {
+			InstanceImg instanceImg = new InstanceImg();
+			TemplateImg templateImg = instanceImg.buscarInstance(this.getFile().getContentType());
 			DaoGenerico<Usuario> daoGenerico = new DaoGenerico<Usuario>();
-			usuario2.setImagem(img);
+			usuario2.setImagem(templateImg.upload(DatatypeConverter.printBase64Binary(this.getFile().getContents()), this.getFile().getContentType()));
 			daoGenerico.inserir(usuario2);
 			usuario2 = new Usuario();
 			addMessage("Sucesso ao inserir Usuário");
