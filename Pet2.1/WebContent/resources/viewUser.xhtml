@@ -38,58 +38,8 @@
 
 			
 			<section class="accordionHome">
-			<div>
-			<h:form rendered="false">
-				<div class="divFlex">
-					<div data-accordion="data-accordion">
-						<h1>Inserir</h1>
-						<span class="spanId"></span>
-					</div>
-					<ul data-listaAccordion="data-listaAccordion">
-						<li><p:link outcome="html/mainUser" value="Nóticia"></p:link></li>
-       				    <li><p:link outcome="html/mainUser" value="Usuário"></p:link></li>
-            			<li><p:link outcome="html/mainUser" value="Atividades"></p:link></li>
-					</ul>
-				</div>
-				<div class="divFlex">
-					<div data-accordion="data-accordion">
-						<h1>Deletar</h1>
-						<span class="spanId"></span>
-					</div>
-					<ul data-listaAccordion="data-listaAccordion">
-						<li>Nóticia</li>
-						<li>Usuário</li>
-						<li>Atividades</li>
-					</ul>
-				</div>
-				<div class="divFlex">
-					<div data-accordion="data-accordion">
-						<h1>Editar</h1>
-						<span class="spanId"></span>
-					</div>
-					<ul data-listaAccordion="data-listaAccordion">
-						<li><p:link outcome="html/updateUser" value="Nóticia"></p:link></li>
-       				    <li><p:link outcome="html/updateUser" value="Usuário"></p:link></li>
-            			<li><p:link outcome="html/updateUser" value="Atividades" ></p:link></li>
-					</ul>
-				</div>
-				</h:form>
-				<div class="divFlex">
-					<div data-accordion="data-accordion" class="ativo">
-						<h1>Visualizar</h1>
-						<span class="spanId"></span>
-					</div>
-					<ul data-listaAccordion="data-listaAccordion" class="ativo">
-						<li data-accordionInsert="data-accordionInsert">Nóticia</li>
-						<li data-accordionInsert="data-accordionInsert">Usuário</li>
-						<h:form rendered="#{benLogin.autoriza('USUARIOLOGADO')}">
-						<li data-accordionInsert="data-accordionInsert">Atividades</li>
-						</h:form>
-					</ul>
-				</div>
-			</div>
 			
-			<div class="formContent">
+			<div class="formContent tabel">
 				<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
 				
 				 <h1>Notícias</h1>
@@ -97,15 +47,15 @@
                  			paginator="true"
                				  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
                				  rowsPerPageTemplate="5,10,15" styleClass="data-scroll" lazy="true" paginatorPosition="bottom">
-						<p:column headerText="Título">
+						<p:column headerText="Título" styleClass="tabelaVisualizacao">
           					  <h:outputText value="#{noticia.titulo}" />
        					 </p:column>
 
-						<p:column>
+						<p:column headerText="Data">
 							<h:outputText value="#{noticia.data}" />
 						</p:column>
 						
-						<p:column>
+						<p:column headerText="Conteudo">
 						
 							<h:outputText value="#{noticia.conteudo}" />
 						</p:column>

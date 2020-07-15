@@ -66,7 +66,7 @@ body {
 
 .container .logo {
   height: 500px;
-  background-image: url(../img/petBg.jpg);
+  background-image: url("../img/petBg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -193,8 +193,6 @@ body {
     margin: 0 auto;
     width: 800px;
     height: 900px; }
-    .accordionHome .formContent.tabel {
-      width: 1200px; }
     .accordionHome .formContent div.divId {
       box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
       text-align: center;
@@ -204,8 +202,7 @@ body {
         animation: 1s animaup forwards; }
       .accordionHome .formContent div.divId.tabela {
         margin-bottom: 50px;
-        color: #595e67;
-        font-weight: normal; }
+        color: #595e67; }
         .accordionHome .formContent div.divId.tabela tbody .radios {
           width: 960;
           margin: 0 auto;
@@ -219,83 +216,90 @@ body {
           margin: 0 auto;
           text-align: center; }
         .accordionHome .formContent div.divId.tabela thead tr th {
+          font-size: 1.1em;
           font-weight: bold;
           border-bottom: 1px solid #6d8997;
           line-height: 2em;
-          background: none; }
+          background: none;
+          }
         .accordionHome .formContent div.divId.tabela tbody tr td {
-          font-size: 1.1rem;
+          font-size: 1em;
           padding-top: 10px;
           padding-bottom: 10px;
           border-bottom: 1px solid #6d8997;
           width: 960px;
-          line-height: 1.5em;
-          background: none !important; }
-      .accordionHome .formContent div.divId tbody tr:nth-child(even) {
-        background: none; }
-    .accordionHome .formContent .accordionHome .formContent div.tabela tbody table, .accordionHome .formContent .accordionHome .formContent div.tabela tbody h1 {
-      border-spacing: 0px;
-      max-width: 960;
-      margin: 0 auto;
-      text-align: center; }
-    .accordionHome .formContent .accordionHome .formContent div.tabela tbody th {
-      font-size: 1.3em;
-      font-weight: bold;
-      width: 202px; }
-    .accordionHome .formContent .accordionHome .formContent div.tabela tbody tr td {
-      font-size: 1em;
-      padding-top: 10px;
-      padding-bottom: 10px; }
-    .accordionHome .formContent .accordionHome .formContent div.tabela tbody tr:nth-child(even) {
-      background-color: #595e67;
-      color: #eaedf2; }
-    .accordionHome .formContent h1 {
-      font-family: "GohtanLight";
-      font-weight: bold;
-      font-size: 2rem;
-      margin: 20px 0;
-      margin-left: 20px;
-      padding: 5px;
-      color: #4a4c4d;
-      text-align: center;
-      padding-top: 40px; }
-    .accordionHome .formContent label.labelId {
-      display: block;
-      font-family: "GohtanLight";
-      font-weight: bold;
-      font-size: 2rem;
-      margin: 20px 0;
-      margin-left: 20px;
-      padding: 5px;
-      font-size: 1em;
-      color: #4a4c4d; }
-    .accordionHome .formContent input {
-      display: block;
-      margin: 0 auto;
-      width: 580px;
-      height: 30px;
-      font-size: 1.25em;
-      color: #4a4c4d; }
-    .accordionHome .formContent textarea {
-      margin: 0 auto;
-      display: block;
-      font-size: 1.25em;
-      color: #4a4c4d; }
-    .accordionHome .formContent button {
-      background-color: #0053e9;
-      border: 2px solid tomato;
-      color: tomato;
-      text-transform: uppercase;
-      font-weight: bold;
-      height: 40px;
-      width: 100px;
-      margin: 30px auto 50px auto; }
-      .accordionHome .formContent button:hover {
+          font-size: 1.25em;
+          line-height: 1.5em; 
+          background: none !important ;}
+          .accordionHome .formContent div.divId.tabela tbody tr:nth-child(even) {
+          background: none; }
+          .ui-datatable .ui-paginator, .ui-datatable .ui-paginator{
+          background: none;
+          }
+          .ui-widget-content{
+          background: none;
+          }
+        
+      .accordionHome .formContent div.divId .accordionHome .formContent div.tabela tbody table, .accordionHome .formContent div.divId .accordionHome .formContent div.tabela tbody h1 {
+        border-spacing: 0px;
+        max-width: 960;
+        margin: 0 auto;
+        text-align: center; }
+      .accordionHome .formContent div.divId .accordionHome .formContent div.tabela tbody th {
+        font-size: 1.3em;
+        font-weight: bold;
+        width: 202px; }
+      .accordionHome .formContent div.divId .accordionHome .formContent div.tabela tbody tr td {
+        font-size: 1em;
+        padding-top: 10px;
+        padding-bottom: 10px; }
+      .accordionHome .formContent div.divId .accordionHome .formContent div.tabela tbody tr:nth-child(even) {
+        background-color: #595e67;
+        color: #eaedf2; }
+      .accordionHome .formContent div.divId h1 {
+        font-family: "GohtanLight";
+        font-weight: bold;
+        font-size: 2rem;
         cursor: pointer;
-        background-color: tomato;
-        color: #0053e9;
-        border: 2px solid #0053e9;
-        transition: 0.2s linear; }
+        margin: 20px 0;
+        margin-left: 20px;
+        padding: 5px;
+        font-size: 2em; }
+      .accordionHome .formContent div.divId label.labelId {
+        display: block;
+        font-family: "GohtanLight";
+        font-weight: bold;
+        font-size: 2rem;
+        cursor: pointer;
+        margin: 20px 0;
+        margin-left: 20px;
+        padding: 5px;
+        font-size: 1em; }
+      .accordionHome .formContent div.divId input {
+        display: block;
+        margin: 0 auto;
+        width: 580px;
+        height: 30px;
+        font-size: 1.25em; }
+      .accordionHome .formContent div.divId textarea {
+        margin: 0 auto;
+        display: block;
+        font-size: 1.25em; }
+      .accordionHome .formContent div.divId button {
+        background-color: #0053e9;
+        border: 2px solid tomato;
+        color: tomato;
+        text-transform: uppercase;
+        font-weight: bold;
+        height: 40px;
+        width: 100px;
+        margin: 30px auto 50px auto; }
+        .accordionHome .formContent div.divId button:hover {
+          cursor: pointer;
+          background-color: tomato;
+          color: #0053e9;
+          border: 2px solid #0053e9;
+          transition: 0.2s linear; }
 
 .main .definition {
   max-width: 1200px !important;
@@ -304,6 +308,7 @@ body {
     font-family: "GohtanLight";
     font-weight: bold;
     font-size: 2rem;
+    cursor: pointer;
     margin: 20px 0;
     margin-left: 20px;
     padding: 5px;
@@ -345,6 +350,7 @@ body {
     font-family: "GohtanLight";
     font-weight: bold;
     font-size: 2rem;
+    cursor: pointer;
     margin: 20px 0;
     margin-left: 20px;
     padding: 5px;
@@ -388,6 +394,7 @@ body {
     font-family: "GohtanLight";
     font-weight: bold;
     font-size: 2rem;
+    cursor: pointer;
     margin: 20px 0;
     margin-left: 20px;
     padding: 5px;
@@ -439,6 +446,7 @@ body {
     font-family: "GohtanLight";
     font-weight: bold;
     font-size: 2rem;
+    cursor: pointer;
     margin: 20px 0;
     margin-left: 20px;
     padding: 5px;
@@ -542,6 +550,7 @@ body {
       font-family: "GohtanLight";
       font-weight: bold;
       font-size: 2rem;
+      cursor: pointer;
       margin: 20px 0;
       margin-left: 20px;
       padding: 5px;
@@ -1058,15 +1067,5 @@ body {
       background-color: darkblue; }
     .container nav ul li + li {
       margin-left: 0 !important; } }
-.ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
-  background: none; }
-
-.ui-widget-content {
-  background: none; }
-
-.ui-state-default {
-  -moz-box-shadow: inset 0 1px 0 #fff;
-  -webkit-box-shadow: none;
-  box-shadow: inset none; }
 
 /*# sourceMappingURL=style.css.map */
