@@ -35,6 +35,47 @@ huserAccordionInsert.forEach((item,index) =>{
 
 
 
+//const modalViewUser = document.querySelector('[data-btnFecharView]');
+
+
+
+
+
+
+
+const botaoAbrir = document.querySelectorAll('.data-Modal');
+const botaoFechar = document.querySelector('[data-btnFechar]');
+const container = document.querySelector('.ModalUsuario');
+
+function handleabrir(event) {
+  container.classList.add('ativo');
+  setTimeout(()=>{
+    cliqueForaContainer.addEventListener('click', handleCliqueFora, true);
+  },100);
+}
+botaoAbrir.forEach(item =>{
+	item.addEventListener('click', handleabrir);
+})
+
+function handleFechar(event) {
+  container.classList.remove('ativo');
+  cliqueForaContainer.removeEventListener('click',handleCliqueFora, true);
+}
+botaoFechar.addEventListener('click', handleFechar);
+
+function handleCliqueFora(event) {
+  if (event.target.contains(container)) {
+    handleFechar();
+  }
+  console.log('fds');
+  
+  console.log(event.target);
+  console.log(container);
+  
+  // console.log(event.target.contains(container));
+  
+}
+const cliqueForaContainer = document.documentElement;
 
 
 
@@ -52,6 +93,52 @@ huserAccordionInsert.forEach((item,index) =>{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const DomElemento = document.documentElement;
+const body = DomElemento.querySelector('body');
+if (body) {
+  body.classList.add('js');
+}
+const dataScroll = document.querySelectorAll('.js [data-href]');
+const tipoDeClique = ['click', 'touchStart'];
+
+if (body && dataScroll) {
+  dataScroll.forEach(imgNode => {
+    tipoDeClique.forEach(tipoClique => {
+      imgNode.addEventListener(tipoClique, handleScroll);
+    })
+  });
+}
+function handleScroll(event) {
+  const atributoScroll = this.getAttribute('data-href');
+  const atributoSelecionado = document.querySelector(atributoScroll);
+  const distanciaElemento = atributoSelecionado.offsetTop;
+  //  atributoSelecionado.scrollIntoView({block: "center", behavior: "smooth"});
+  window.scrollTo({
+    behavior: 'smooth',
+    top: distanciaElemento - 75
+  });
+}
 
 
 

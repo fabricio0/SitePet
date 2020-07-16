@@ -63,7 +63,7 @@ public class beanView implements Serializable {
 	@PostConstruct
 	private void init() {
 		if (noticias == null) {
-			noticias.load(0, 5, null, null);
+			noticias.load(0, 5, null, null,null);
 		}
 		if (usuarios == null && atividades == null) {
 			DaoGenerico<Usuario> daogenericoUsuario = new DaoGenerico<Usuario>();

@@ -43,6 +43,8 @@
 				<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
 				
 				 <h1>Notícias</h1>
+				 <h:form>
+				 
 					<p:dataTable var="noticia" value="#{beanView.noticias}" rows="5"
                  			paginator="true"
                				  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
@@ -60,53 +62,50 @@
 							<h:outputText value="#{noticia.conteudo}" />
 						</p:column>
 						
+						<p:column style="width: 120px;">
+							<f:facet name = "header">Acesse</f:facet>    	
+							<h:commandLink onclick="descevisualizar()" >
+							<h:graphicImage library="img" name="logoEdit.png" style="width:30px;height:30px;margin:0 auto; cursor:pointer;"  />
+							<f:setPropertyActionListener value="#{noticia}" target="#{beanHomeUser.noticia}" />
+							</h:commandLink>
+						</p:column>
+						
 					</p:dataTable>
-					
+					</h:form>
 				</div>
-				<div class="divId tabela" data-contentLeft="data-contentLeft">
-					 <h1>Alunos</h1>
-					<h:dataTable value="#{beanView.usuarios}" var="user" class="data-scroll">
-
-						<h:column>
-							<f:facet name = "header">Nome</f:facet>    	
-							<h:outputText value="#{user.nome}" />
-						</h:column>
-
-						<h:column>
-							<f:facet name = "header">Email</f:facet>    	
-							<h:outputText value="#{user.email}" />
-						</h:column>
-						
-					</h:dataTable>
-				</div>
-				<div class="divId tabela" data-contentLeft="data-contentLeft">
-					 <h1>Atividades</h1>
-					<h:dataTable value="#{beanView.atividades}" var="atividade" class="data-scroll">
-
-						<h:column>
-							<f:facet name = "header">Nome</f:facet>    	
-							<h:outputText value="#{atividade.titulo}" />
-						</h:column>
-
-						<h:column>
-							<f:facet name = "header">Email</f:facet>    	
-							<h:outputText value="#{atividade.data}" />
-						</h:column>
-						<h:column>
-							<f:facet name = "header">Conteúdo</f:facet>    	
-							<h:outputText value="#{atividade.conteudo}" />
-						</h:column>
-						
-					</h:dataTable>
+				
+			<div class="visualizarUser">
+				<h3 id=""><h:outputText value="#{beanHomeUser.noticia.titulo}" /></h3>
+				<span>
+				<h:outputText value="#{beanHomeUser.noticia.data}"  >
+					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/>
+				 </h:outputText>
+				</span>
+				<p>
+				<h:outputText value="#{beanHomeUser.noticia.conteudo}"  />
+				</p>
 				</div>
 			</div>
 			</section>
 
 		</div>
 
-
+	
+		
 	</div>
+		
+	
+	
+	
+	
+		
+		
 
 	<script src="js/scriptUser.js"></script>
+	<script>
+		function descevisualizar(){
+			window.scrollTo( 0, 100 );
+		}
+	</script>
 </h:body>
 </h:html>

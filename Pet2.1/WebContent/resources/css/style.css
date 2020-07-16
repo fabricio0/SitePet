@@ -195,13 +195,35 @@ body {
     height: 900px; }
     .accordionHome .formContent.tabel {
       width: 1200px; }
+      .accordionHome .formContent.tabel .visualizarUser {
+        max-width: 960px;
+        margin: 0 auto; }
+        .accordionHome .formContent.tabel .visualizarUser h3 {
+          font-family: "GohtanLight";
+          font-weight: bold;
+          font-size: 2rem;
+          margin: 20px 0;
+          margin-left: 20px;
+          padding: 5px;
+          color: #4a4c4d;
+          text-align: center;
+          padding-top: 40px; }
+        .accordionHome .formContent.tabel .visualizarUser span, .accordionHome .formContent.tabel .visualizarUser p {
+          margin-top: 0px;
+          text-align: center;
+          line-height: 1.5em;
+          font-family: "GohtanLight";
+          font-size: 1.1rem; }
+        .accordionHome .formContent.tabel .visualizarUser span {
+          font-size: 0.75rem; }
+        .accordionHome .formContent.tabel .visualizarUser p {
+          text-align: left; }
     .accordionHome .formContent div.divId {
       box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
       text-align: center;
       display: none; }
       .accordionHome .formContent div.divId.divId.ativo {
-        display: block;
-        animation: 1s animaup forwards; }
+        display: block; }
       .accordionHome .formContent div.divId.tabela {
         margin-bottom: 50px;
         color: #595e67;

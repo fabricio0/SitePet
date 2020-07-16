@@ -70,6 +70,8 @@ const handleAtivaMenu = {
   }
 }
 const menu = document.querySelector('[data-menu]');
+
+//data-btnFecharView
 // console.log(menu);
 // this.btn = 'fbc'; body)
 if (menu && body){
