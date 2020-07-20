@@ -22,10 +22,19 @@
              <li>
               <h:graphicImage value="#{benLogin.usuario.imagem}" alt="imagemsft" style="border-radius:50%; height:60px; width:60px;"/>
               </li>
-					<li data-href="#Sobre">Sobre</li>
-					<li data-href="#Noticia">Noticias</li>
-					<li data-href="#Numeros">Pet em números</li>
+					<li data-href="#Sobre"><p:link outcome="../index.xhtml">Sobre</p:link></li>
+					<li data-href="#Noticia"><p:link outcome="../index.xhtml">Noticias</p:link></li>
+					<li data-href="#Numeros"><p:link outcome="../index.xhtml">Pet em números</p:link></li>
 					<li>Contato</li>
+					
+					<h:form rendered="#{benLogin.autoriza('USUARIONAOLOGADO')}">
+              <li data-modal="data-modal">Entrar</li>
+              </h:form>
+               <h:form rendered="#{benLogin.autoriza('USUARIOLOGADO')}">
+              <li>
+              <h:commandLink action="#{benLogin.logout}" value="Sair" />
+              </li>
+              </h:form>
 
 				</ul>
 				</nav>
@@ -48,6 +57,7 @@
             			<li><p:link outcome="mainUser" value="Atividades"></p:link></li>
 					</ul>
 				</div>
+				<h:form rendered="#{benLogin.autorizaPermissao('administrador')}">
 				<div class="divFlex">
 					<div data-accordion="data-accordion">
 						<h1>Deletar</h1>
@@ -59,15 +69,19 @@
 						<li>Atividades</li>
 					</ul>
 				</div>
+				</h:form>
 				<div class="divFlex">
 					<div data-accordion="data-accordion" class="ativo">
 						<h1>Editar</h1>
 						<span class="spanId"></span>
 					</div>
 					<ul data-listaAccordion="data-listaAccordion" class="ativo">
+					<li data-accordionInsert="data-accordionInsert">Meu Perfil</li>
+					<h:form rendered="#{benLogin.autorizaPermissao('administrador')}">
 						<li data-accordionInsert="data-accordionInsert">Nóticia</li>
 						<li data-accordionInsert="data-accordionInsert">Usuário</li>
 						<li data-accordionInsert="data-accordionInsert">Atividades</li>
+						</h:form>
 					</ul>
 				</div>
 				<div class="divFlex">
@@ -84,7 +98,32 @@
 			</div>
 			
 			<div class="formContent">
-				<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
+			<div class="divId ativo tabela" data-contentLeft="data-contentLeft">
+				<h1>Meu Perfil</h1>
+          <h:form enctype="multipart/form-data">
+   			 	<p:growl id="growl" life="2000" />
+           		<h:outputLabel for="nome" value="Nome" styleClass="labelId" />
+	          	<p:inputText id="nome" value="#{benLogin.usuario.nome}" />
+	          	<h:outputLabel for="email" value="Email" styleClass="labelId" />
+	          	<p:inputText id="email" value="#{benLogin.usuario.email}" />
+	          	<h:outputLabel for="senha" value="Senha" styleClass="labelId" />
+	          	<p:password id="senha" value="#{benLogin.usuario.senha}" />
+     		   <p:outputLabel styleClass="labelId" for="console" value="Console:" />
+    		    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+   			     <p:outputLabel for="@next" value="Categoria: " />
+     		   <p:selectOneMenu id="console" value="#{benLogin.usuario.categoria}" style="width:125px">
+            <f:selectItem itemLabel="Administrador" itemValue="administrador" />
+            <f:selectItem itemLabel="Aluno" itemValue="aluno" />
+      		  </p:selectOneMenu>
+      		  </h:panelGrid>
+    		<p:fileUpload fileUploadListener="#{beanHomeUser.uploadImg}" auto="true" mode="advanced" />
+			<p:commandButton value="Editar" update="growl" actionListener="#{benLogin.editarMeuPerfil}" />
+			</h:form>
+				</div>
+			
+			
+			
+				<div class="divId tabela" data-contentLeft="data-contentLeft">
 				<h1>Editar Noticia</h1>
         <h:form enctype="multipart/form-data"> 
    			 <p:growl id="growl" life="2000" />
@@ -206,6 +245,8 @@
 					</h:dataTable>
 					</h:form>
 				</div>
+				
+				
 			</div>
 			</section>
 

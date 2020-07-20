@@ -152,23 +152,22 @@ observer.observe(numerosCrescente, config);
 
 
 
-//funçao de clicar na imagem e aparecer o texto referente
 function handleContenxt(event) {
-  // console.log(event);
-}
+	  // console.log(event);
+	}
 
-const imgTotal = document.querySelectorAll('[data-img]');
-const contextoImgTotal = document.querySelectorAll('.js [data-contexto]');
-contextoImgTotal[0].classList.add('ativo');
-imgTotal.forEach((element, index) => {
-  element.addEventListener('click',
-  ()=>{
-    contextoImgTotal.forEach(el => {
-      el.classList.remove('ativo');
-    });
-    contextoImgTotal[index].classList.add('ativo');
-  });
-});
+	const imgTotal = document.querySelectorAll('[data-img]');
+	const contextoImgTotal = document.querySelectorAll('.js [data-contexto]');
+	contextoImgTotal[0].classList.add('ativo');
+	imgTotal.forEach((element, index) => {
+	  element.addEventListener('click',
+	  ()=>{
+	    contextoImgTotal.forEach(el => {
+	      el.classList.remove('ativo');
+	    });
+	    contextoImgTotal[index].classList.add('ativo');
+	  });
+	});
 
 
 
@@ -295,8 +294,6 @@ function handleCliqueFora(event) {
   
 }
 const cliqueForaContainer = document.documentElement;
-
-
 
 
 

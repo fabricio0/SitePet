@@ -95,12 +95,15 @@ public class BeanHomeUser {
 		try {
 			DaoGenerico<Usuario> daoGenerico = new DaoGenerico<Usuario>();
 //			String img = "data:image/jpg;base64," + DatatypeConverter.printBase64Binary(this.getFile().getContents());
+			if (this.getFile() != null) {
 			System.out.println(this.getFile().getContentType());
 			System.out.println(this.getFile().getSize());
 			InstanceImg instanceImg = new InstanceImg();
 			TemplateImg templateImg = instanceImg.buscarInstance(this.getFile().getContentType());
 			usuario2.setImagem(templateImg.upload(DatatypeConverter.printBase64Binary(this.getFile().getContents()), this.getFile().getContentType()));
 //				System.out.println(noticiasAtt.getTitulo());
+			}
+				
 			daoGenerico.mergeAtts(usuario2);
 			addMessage("Sucesso ao editar Usuário");
 		} catch (Exception e) {

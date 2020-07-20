@@ -43,7 +43,8 @@ huserAccordionInsert.forEach((item,index) =>{
 
 
 
-const botaoAbrir = document.querySelectorAll('.data-Modal');
+
+const botaoAbrir = document.querySelector('[data-modal]');
 const botaoFechar = document.querySelector('[data-btnFechar]');
 const container = document.querySelector('.ModalUsuario');
 
@@ -53,9 +54,7 @@ function handleabrir(event) {
     cliqueForaContainer.addEventListener('click', handleCliqueFora, true);
   },100);
 }
-botaoAbrir.forEach(item =>{
-	item.addEventListener('click', handleabrir);
-})
+botaoAbrir.addEventListener('click', handleabrir);
 
 function handleFechar(event) {
   container.classList.remove('ativo');
@@ -108,37 +107,6 @@ const cliqueForaContainer = document.documentElement;
 
 
 
-
-
-
-
-
-
-const DomElemento = document.documentElement;
-const body = DomElemento.querySelector('body');
-if (body) {
-  body.classList.add('js');
-}
-const dataScroll = document.querySelectorAll('.js [data-href]');
-const tipoDeClique = ['click', 'touchStart'];
-
-if (body && dataScroll) {
-  dataScroll.forEach(imgNode => {
-    tipoDeClique.forEach(tipoClique => {
-      imgNode.addEventListener(tipoClique, handleScroll);
-    })
-  });
-}
-function handleScroll(event) {
-  const atributoScroll = this.getAttribute('data-href');
-  const atributoSelecionado = document.querySelector(atributoScroll);
-  const distanciaElemento = atributoSelecionado.offsetTop;
-  //  atributoSelecionado.scrollIntoView({block: "center", behavior: "smooth"});
-  window.scrollTo({
-    behavior: 'smooth',
-    top: distanciaElemento - 75
-  });
-}
 
 
 

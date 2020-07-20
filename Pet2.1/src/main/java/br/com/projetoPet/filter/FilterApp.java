@@ -36,12 +36,14 @@ public class FilterApp implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		String url = req.getServletPath();
-		request.getParameter("usuario");
+//		request.getParameter("usuario");
 		System.out.println(request.getParameter("usuario"));
 		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 //		System.out.println("url da requisição");
 //		System.out.println(url);
+		
 		if (!url.equalsIgnoreCase("/resources/index.xhtml") && usuarioLogado == null) {
+//			System.out.println("Nome" + usuarioLogado.getNome());
 //			System.out.println("oks");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/index.xhtml");
 			dispatcher.forward(request, response);

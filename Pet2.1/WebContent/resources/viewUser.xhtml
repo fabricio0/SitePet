@@ -24,11 +24,21 @@
           		   <li>
           		    <h:graphicImage value="#{benLogin.usuario.imagem}" rendered="#{benLogin.autoriza('USUARIOLOGADO')}" alt="imagemsft" style="border-radius:50%; height:60px; width:60px;"/>
            		   </li>
-					<li data-href="#Sobre">Sobre</li>
-					<li data-href="#Noticia">Noticias</li>
-					<li data-href="#Numeros">Pet em números</li>
+					<li data-href="#Sobre"><p:link outcome="index.xhtml">Sobre</p:link></li>
+					<li data-href="#Noticia"><p:link outcome="index.xhtml">Noticias</p:link></li>
+					<li data-href="#Numeros"><p:link outcome="index.xhtml">Pet em números</p:link></li>
 					<li>Contato</li>
-
+					
+					<h:form rendered="#{benLogin.autoriza('USUARIONAOLOGADO')}">
+              <li data-modal="data-modal">Entrar</li>
+              </h:form>
+               <h:form rendered="#{benLogin.autoriza('USUARIOLOGADO')}">
+              <li>
+              <h:commandLink action="#{benLogin.logout}" value="Sair" />
+              </li>
+              </h:form>
+					
+					
 				</ul>
 				</nav>
 			</div>
@@ -54,7 +64,9 @@
        					 </p:column>
 
 						<p:column headerText="Data">
-							<h:outputText value="#{noticia.data}" />
+							<h:outputText value="#{noticia.data}" >
+							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/>
+							</h:outputText>
 						</p:column>
 						
 						<p:column headerText="Conteudo">
@@ -81,24 +93,33 @@
 					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/>
 				 </h:outputText>
 				</span>
-				<p>
+				<textarea readonly="readonly" rows='20' cols='50' class="textoArea">
 				<h:outputText value="#{beanHomeUser.noticia.conteudo}"  />
-				</p>
+				</textarea>
 				</div>
 			</div>
 			</section>
 
 		</div>
 
-	
 		
 	</div>
 		
 	
-	
-	
-	
-		
+		<div class="ModalUsuario" id="Entrar">
+		<h:form prependId="false">
+			<p:growl id="growls" life="3000" />
+			<button class="fechar" type="button" data-btnFechar="data-btnFechar">X</button>
+			<h3>Login</h3>
+			<label id="lbEmail" for="email">Nome do usuário</label>
+			<p:inputText id="email" value="#{benLogin.usuario.email}" />
+
+			<label id="lbSenha" for="senha">Senha</label>
+			<p:password id="nonFeedback" value="#{benLogin.usuario.senha}" />
+			<p:commandButton ajax="false" id="salvarButton" action="#{benLogin.logar}"
+				update="growls" value="Entrar" />
+		</h:form>
+	</div>
 		
 
 	<script src="js/scriptUser.js"></script>
@@ -107,5 +128,8 @@
 			window.scrollTo( 0, 100 );
 		}
 	</script>
+	
+	
+	
 </h:body>
 </h:html>

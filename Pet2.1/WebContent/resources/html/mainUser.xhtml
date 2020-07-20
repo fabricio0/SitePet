@@ -16,17 +16,19 @@
   <div class="container">
     <section class="logo home">
       <div class="navLayout">
-        <h:graphicImage name="logoPET.png" library="img" />
+        <p:link outcome="../index.xhtml"><h:graphicImage library="img" name="logoPET.png" alt="Logo do PET ADS IFSP São Carlos" value="" /></p:link>
         <div data-menu="data-menu">
          <nav>
             <ul style="align-items: center;">
              <li>
               <h:graphicImage value="#{benLogin.usuario.imagem}" alt="imagemsft" style="border-radius:50%; height:60px; width:60px;"/>
               </li>
-              <li data-href="#Sobre">Sobre</li>
-              <li data-href="#Noticia">Noticias</li>
-              <li data-href="#Numeros">Pet em números</li>
+              <li data-href="#Sobre"><p:link outcome="../index.xhtml">Sobre</p:link></li>
+					<li data-href="#Noticia"><p:link outcome="../index.xhtml">Noticias</p:link></li>
+					<li data-href="#Numeros"><p:link outcome="../index.xhtml">Pet em números</p:link></li>
               <li>Contato</li>
+              
+              
               <h:form rendered="#{benLogin.autoriza('USUARIONAOLOGADO')}">
               <li data-modal="data-modal">Entrar</li>
               </h:form>
@@ -56,7 +58,8 @@
             <li data-accordionInsert="data-listaAccordion">Atividades</li>
           </ul>
         </div>
-        <div class="divFlex">
+        <h:form rendered="#{benLogin.autorizaPermissao('administrador')}">
+        <div class="divFlex" >
           <div data-accordion="data-accordion">
             <h1>Deletar</h1>
             <span class="spanId"></span>
@@ -67,15 +70,20 @@
             <li>Atividades</li>
           </ul>
         </div>
+        </h:form>
+ 
         <div class="divFlex">
           <div data-accordion="data-accordion">
             <h1>Editar</h1>
             <span class="spanId"></span>
           </div>
           <ul data-listaAccordion="data-listaAccordion">
+            <li><p:link outcome="updateUser.xhtml" value="Meu Perfil"></p:link></li>
+          <h:form rendered="#{benLogin.autorizaPermissao('administrador')}">
             <li><p:link outcome="updateUser.xhtml" value="Nóticia"></p:link></li>
-            <li>Usuário</li>
-            <li>Atividades</li>
+            <li><p:link outcome="updateUser.xhtml" value="Usuário"></p:link></li>
+            <li><p:link outcome="updateUser.xhtml" value="Atividades"></p:link></li>
+            </h:form>
           </ul>
         </div>
         <div class="divFlex">
@@ -100,7 +108,9 @@
 	           <h:outputLabel for="data" value="Data" styleClass="labelId" />
 	          <p:datePicker id="data" value="#{beanHomeUser.noticia.data}" />
 	           <h:outputLabel for="conteudo" value="Conteúdo" styleClass="labelId" />
+     		  <pre>
      		  <p:inputTextarea id="conteudo" rows="20" cols="50" value="#{beanHomeUser.noticia.conteudo}" />
+     		  </pre>
     		  <p:commandButton value="Salvar" update="growl" action="#{beanHomeUser.salvarNoticia}">
     		  <f:ajax render="@form" /></p:commandButton>
 			</h:form>
@@ -137,7 +147,9 @@
 	          <h:outputLabel for="data" value="Data" styleClass="labelId" />
 	          <p:datePicker id="data" value="#{beanHomeUser.atividade.data}" />
 	          <h:outputLabel for="conteudo" value="Conteúdo" styleClass="labelId" />
+	          <pre>
      		  <p:inputTextarea id="conteudo" rows="20" cols="50" value="#{beanHomeUser.atividade.conteudo}" />
+    		  </pre>
     		  <p:commandButton value="Salvar" update="growl" action="#{beanHomeUser.salvarAtividade}">
     		  <f:ajax render="@form" /> </p:commandButton>
 			</h:form>

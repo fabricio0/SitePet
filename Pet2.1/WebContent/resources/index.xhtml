@@ -16,7 +16,7 @@
 	<div class="container">
 		<section class="logo">
 		<div class="navLayout">
-			<h:graphicImage name="logoPET.png" alt="Logo do PET ADS IFSP São Carlos" library="img" />
+		<p:link outcome="index.xhtml"><img src="img/logoPET.png" alt="Logo do PET ADS IFSP São Carlos" /></p:link>
 			<div data-menu="data-menu"> 
 				<nav>
 				<ul>
@@ -42,26 +42,49 @@
 		<p data-anima-letters="data-anima-letters"></p>
 		<span data-href="#Sobre">↓</span> </section>
 		<main class="main"> <section class="definition" id="Sobre">
-		<h2>o que é Pet</h2>
+		<h2>O Que é Pet</h2>
 		<p>“ Lorem ipsum dolor sit amet consectetur adipisicing elit.
 			Nobis asperiores perspiciatis culpa, at fuga repellendus neque
 			possimus odio facilis eum, recusandae molestias illum ad, magni
 			numquam. Nihil, quisquam modi fuga repellendus neque possimus odio
 			facilis eum, recusandae molestias illum . ”</p>
 
-		</section> <section class="notice data-scroll"
+		</section>
+		 <section class="notice data-scroll"
 			data-anima-scroll="data-anima-scroll" id="Noticia">
 		<h2 class="data-scroll" data-anima-scroll="data-anima-scroll">Noticias</h2>
-		<ul class="data-scroll" data-anima-scroll="data-anima-scroll">
-			<li>Noticia 1</li>
-			<li>Noticia 2</li>
-			<li>Noticia 3</li>
-			<li>Noticia 4</li>
-			<li>
-			<p:link outcome="viewUser.xhtml" value="Clique aqui para ler todas as Noticias" style="text-decoration: none;font-size:1rem;">
-			</p:link>
-			</li>
-		</ul>
+		
+		<div class="accordionHome" style="height: 300px">
+		<div class="formContent tabel">
+			<div class="divId ativo tabela" data-contentLeft="data-contentLeft" style="width:960px;margin:0 auto;">
+			<p:dataTable var="noticia" value="#{beanView.noticias}" rows="5"
+               				  rowsPerPageTemplate="5,10,15" styleClass="data-scroll" lazy="true" paginatorPosition="bottom">
+						<p:column headerText="Título" styleClass="tabelaVisualizacao">
+          					  <h:outputText value="#{noticia.titulo}" />
+       					 </p:column>
+
+						<p:column headerText="Data">
+							<h:outputText value="#{noticia.data}" >
+							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00"/>
+							</h:outputText>
+						</p:column>
+						
+						<p:column headerText="Conteudo">
+						
+							<h:outputText value="#{noticia.conteudo}" />
+						</p:column>
+						
+						
+						
+					
+						
+					</p:dataTable>
+					<span style="padding: 15px; display:block;"><p:link outcome="viewUser.xhtml" >Clique aqui para ler todas as noticias *</p:link></span>
+					</div>
+					</div>
+					</div>
+		
+		
 		</section> <section class="numbers data-scroll"
 			data-anima-scroll="data-anima-scroll"
 			data-anima-numeros="data-anima-numeros" id="Numeros">
@@ -84,83 +107,85 @@
 					class="description">Atividades Realizadas</span>
 			</div>
 		</div>
-		</section> <section class="integrantes">
-		<h2>Integrantes da Pet</h2>
-		<div class="bgImgLegend">
-			<ul class="overflowImg">
-				<li>
-					<h:graphicImage name="petimg.jpg" library="img" class="mut" />		
-				</li>
-				<li>
-					<h:graphicImage name="petBg.jpg" library="img" data-img="data-img" />		
-				</li>
-				<li>
-					<h:graphicImage name="petimg.jpg" library="img" data-img="data-img" />		
-				</li>
-				<li>
-					<h:graphicImage name="petBg.jpg" library="img" data-img="data-img" />		
-				</li>
-				<li>
-					<h:graphicImage name="petimg.jpg" library="img" class="mut" />		
-				</li>
-				<li>
-					<h:graphicImage name="petBg.jpg" library="img" data-img="data-img" />		
-				</li>
-				<li>
-					<h:graphicImage name="petimg.jpg" library="img" data-img="data-img" />		
-				</li>
-				<li>
-					<h:graphicImage name="petBg.jpg" library="img" data-img="data-img" />		
-				</li>
-				
-			</ul>
-			<div class="descricaoIntergrante">
-				<div data-contexto="data-contexto">
-					<h3>FBCJR</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Excepturi accusantium veritatis iste neque quaerat tenetur
-						corrupti ratione quo nisi, est officiis quam necessitatibus aut
-						sunt voluptas eligendi at et eaque.</p>
-				</div>
-				<div data-contexto="data-contexto">
-					<h3>Campos</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Veritatis, nemo maxime! Eum nemo illo, dolore aspernatur odit
-						sapiente quidem laudantium repellat expedita ratione reprehenderit
-						dignissimos dolorum corrupti atque qui cumque.</p>
-				</div>
-				<div data-contexto="data-contexto">
-					<h3>Jr</h3>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Magni laudantium dicta doloribus assumenda, molestiae dolorum ipsa
-						eum! Corporis, dolores culpa. Tempora odio cupiditate ullam
-						possimus! Accusantium neque veritatis consequuntur commodi!</p>
-				</div>
-				<div data-contexto="data-contexto">
-					<h3>FJC</h3>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Magni laudantium dicta doloribus assumenda, molestiae dolorum ipsa
-						eum! Corporis, dolores culpa. Tempora odio cupiditate ullam
-						possimus! Accusantium neque veritatis consequuntur commodi!</p>
-				</div>
-				<div data-contexto="data-contexto">
-					<h3>FJR</h3>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Magni laudantium dicta doloribus assumenda, molestiae dolorum ipsa
-						eum! Corporis, dolores culpa. Tempora odio cupiditate ullam
-						possimus! Accusantium neque veritatis consequuntur commodi!</p>
-				</div>
-				<div data-contexto="data-contexto">
-					<h3>CPS</h3>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Magni laudantium dicta doloribus assumenda, molestiae dolorum ipsa
-						eum! Corporis, dolores culpa. Tempora odio cupiditate ullam
-						possimus! Accusantium neque veritatis consequuntur commodi!</p>
-				</div>
+		</section>  <section class="integrantes">
+        <h2>Integrantes da Pet</h2>
+        <div class="bgImgLegend">
+          <ul class="overflowImg">
+            <li>
+              <div data-img="data-img">
+              <h:graphicImage library="img" name="petimg.jpg" class="mut" />
+              </div>
+            </li>
+            <li>
+              <div data-img="data-img">
+              <h:graphicImage library="img" name="petBg.jpg" />
+              </div>
+            </li>
+            <li>
+			<div data-img="data-img">
+              <h:graphicImage library="img" name="petimg.jpg" />
+              </div>
+            </li>
+            <li>
+				<div data-img="data-img">
+              <h:graphicImage library="img" name="petBg.jpg" />
+              </div>
+            </li>
+            <li>
+              <div data-img="data-img">
+              <h:graphicImage library="img" name="petimg.jpg" />
+              </div>
+            </li>
+            <li>
+             <div data-img="data-img">
+              <h:graphicImage library="img" name="petBg.jpg" />
+              </div>
+            </li>
+          </ul>
+          <div class="descricaoIntergrante">
+            <div data-contexto="data-contexto">
+              <h3>FBCJR</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi accusantium veritatis iste neque
+                quaerat tenetur corrupti ratione quo nisi, est officiis quam necessitatibus aut sunt voluptas eligendi
+                at et eaque.</p>
+            </div>
+            <div data-contexto="data-contexto">
+              <h3>Campos</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nemo maxime! Eum nemo illo, dolore
+                aspernatur odit sapiente quidem laudantium repellat expedita ratione reprehenderit dignissimos dolorum
+                corrupti atque qui cumque.</p>
+            </div>
+            <div data-contexto="data-contexto">
+              <h3>Jr</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni laudantium dicta doloribus assumenda,
+                molestiae dolorum ipsa eum! Corporis, dolores culpa. Tempora odio cupiditate ullam possimus! Accusantium
+                neque veritatis consequuntur commodi!</p>
+            </div>
+            <div data-contexto="data-contexto">
+              <h3>FJC</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni laudantium dicta doloribus assumenda,
+                molestiae dolorum ipsa eum! Corporis, dolores culpa. Tempora odio cupiditate ullam possimus! Accusantium
+                neque veritatis consequuntur commodi!</p>
+            </div>
+            <div data-contexto="data-contexto">
+              <h3>FJR</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni laudantium dicta doloribus assumenda,
+                molestiae dolorum ipsa eum! Corporis, dolores culpa. Tempora odio cupiditate ullam possimus! Accusantium
+                neque veritatis consequuntur commodi!</p>
+            </div>
+            <div data-contexto="data-contexto">
+              <h3>CPS</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni laudantium dicta doloribus assumenda,
+                molestiae dolorum ipsa eum! Corporis, dolores culpa. Tempora odio cupiditate ullam possimus! Accusantium
+                neque veritatis consequuntur commodi!</p>
+            </div>
 
-			</div>
-		</div>
-		</section> <footer class="footer">
+           
+          </div>
+        </div>
+      </section>
+      
+      <footer class="footer">
 		<p>Pet Ads © 2020. Alguns direitos Reservados.</p>
 		</footer> </main>
 
@@ -178,8 +203,6 @@
 			<p:commandButton ajax="false" id="salvarButton" action="#{benLogin.logar}"
 				update="growls" value="Entrar" />
 		</h:form>
-		
-		
 	</div>
 	<h:outputScript name="script.js" library="js" />
 </h:body>
